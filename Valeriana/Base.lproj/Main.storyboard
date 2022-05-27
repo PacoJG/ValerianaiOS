@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Es1-Nb-wdd">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-VariableFont_wght.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="OpenSans-VariableFont_wdth,wght.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tK7-3d-0s7">
+            <objects>
+                <viewController id="Es1-Nb-wdd" customClass="LoginViewController" customModule="Valeriana" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tBj-kx-Pqv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ValerianaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="myc-Dm-1Ja">
+                                <rect key="frame" x="18" y="116" width="378" height="201"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Bienvenido a Valeriana!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAI-Tm-o7C">
+                                <rect key="frame" x="29" y="344" width="356" height="44"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="32"/>
+                                <color key="textColor" name="fontBase"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D8l-qf-AMI" customClass="CustomTextField" customModule="Valeriana" customModuleProvider="target">
+                                <rect key="frame" x="36" y="412" width="342" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="dgO-mI-1OC"/>
+                                </constraints>
+                                <color key="textColor" name="fontBase"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qs0-Qj-gLw" customClass="CustomTextField" customModule="Valeriana" customModuleProvider="target">
+                                <rect key="frame" x="36" y="476" width="342" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="mbQ-z9-7tr"/>
+                                </constraints>
+                                <color key="textColor" name="fontBase"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3F-Xm-lk4">
+                                <rect key="frame" x="36" y="556" width="342" height="39"/>
+                                <color key="tintColor" name="blueBotton"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login">
+                                    <fontDescription key="titleFontDescription" name="OpenSansRoman-SemiBold" family="Open Sans" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnLoginAction:" destination="Es1-Nb-wdd" eventType="touchUpInside" id="20U-yJ-BhN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLV-pB-zsP">
+                                <rect key="frame" x="247" y="828" width="90" height="34"/>
+                                <color key="tintColor" name="blueBotton"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Registraté">
+                                    <fontDescription key="titleFontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Aún no tienes una cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke6-Ct-dlI">
+                                <rect key="frame" x="74" y="834" width="179" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="fontBase"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rAr-4e-cyO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zAI-Tm-o7C" firstAttribute="leading" secondItem="rAr-4e-cyO" secondAttribute="leading" constant="29" id="053-65-4ht"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="trailing" secondItem="Ke6-Ct-dlI" secondAttribute="trailing" constant="161" id="3C3-jR-4Bi"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="trailing" secondItem="zAI-Tm-o7C" secondAttribute="trailing" constant="29" id="4pC-UR-ZNS"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="trailing" secondItem="FLV-pB-zsP" secondAttribute="trailing" constant="77" id="6th-A9-NoF"/>
+                            <constraint firstItem="myc-Dm-1Ja" firstAttribute="top" secondItem="rAr-4e-cyO" secondAttribute="top" constant="72" id="8Ue-3z-KbG"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="trailing" secondItem="D8l-qf-AMI" secondAttribute="trailing" constant="36" id="8X8-Mg-Gxc"/>
+                            <constraint firstItem="myc-Dm-1Ja" firstAttribute="leading" secondItem="rAr-4e-cyO" secondAttribute="leading" constant="18" id="B12-Wo-RrY"/>
+                            <constraint firstItem="FLV-pB-zsP" firstAttribute="leading" secondItem="rAr-4e-cyO" secondAttribute="leading" constant="247" id="BfU-vI-0Ne"/>
+                            <constraint firstItem="h3F-Xm-lk4" firstAttribute="leading" secondItem="rAr-4e-cyO" secondAttribute="leading" constant="36" id="IjE-tz-WzE"/>
+                            <constraint firstItem="D8l-qf-AMI" firstAttribute="top" secondItem="zAI-Tm-o7C" secondAttribute="bottom" constant="24" id="P29-Zn-9Fh"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="trailing" secondItem="h3F-Xm-lk4" secondAttribute="trailing" constant="36" id="TFb-1S-tU1"/>
+                            <constraint firstItem="Qs0-Qj-gLw" firstAttribute="leading" secondItem="rAr-4e-cyO" secondAttribute="leading" constant="36" id="TGF-Pl-ISC"/>
+                            <constraint firstItem="FLV-pB-zsP" firstAttribute="bottom" secondItem="rAr-4e-cyO" secondAttribute="bottom" id="Vvp-d9-wDi"/>
+                            <constraint firstItem="Qs0-Qj-gLw" firstAttribute="top" secondItem="D8l-qf-AMI" secondAttribute="bottom" constant="16" id="X6y-Xb-hFl"/>
+                            <constraint firstItem="D8l-qf-AMI" firstAttribute="leading" secondItem="rAr-4e-cyO" secondAttribute="leading" constant="36" id="aRY-65-tVX"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="trailing" secondItem="myc-Dm-1Ja" secondAttribute="trailing" constant="18" id="c9j-lK-lK9"/>
+                            <constraint firstItem="Ke6-Ct-dlI" firstAttribute="leading" secondItem="rAr-4e-cyO" secondAttribute="leading" constant="74" id="f0R-Go-9d7"/>
+                            <constraint firstItem="zAI-Tm-o7C" firstAttribute="top" secondItem="myc-Dm-1Ja" secondAttribute="bottom" constant="27" id="fkh-AL-gpZ"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="trailing" secondItem="Qs0-Qj-gLw" secondAttribute="trailing" constant="36" id="i1D-nA-SHf"/>
+                            <constraint firstItem="h3F-Xm-lk4" firstAttribute="top" secondItem="Qs0-Qj-gLw" secondAttribute="bottom" constant="32" id="jco-QR-v8k"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="bottom" secondItem="myc-Dm-1Ja" secondAttribute="bottom" constant="545" id="nEf-wZ-odc"/>
+                            <constraint firstItem="rAr-4e-cyO" firstAttribute="bottom" secondItem="Ke6-Ct-dlI" secondAttribute="bottom" constant="8" id="r0p-q9-eem"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="D8l-qf-AMI" id="ETU-gl-ic2"/>
+                        <outlet property="passwordTextField" destination="Qs0-Qj-gLw" id="V2V-uh-MH5"/>
+                        <segue destination="TW2-TG-zbl" kind="presentation" identifier="goHome" modalPresentationStyle="fullScreen" id="gIF-Yv-PK9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIH-oh-jvR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-568.1159420289855" y="-159.375"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="FZx-8b-zpb">
+            <objects>
+                <viewController id="AuY-9G-K8n" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kdm-GA-Flh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="o1v-KM-rdI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" selectedImage="tray" catalog="system" id="Dmd-GS-mSF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rp-fa-69H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222" y="163"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="hgi-ti-OKh">
+            <objects>
+                <viewController id="5Ix-rd-UzD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sqF-iQ-V2j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VTZ-6R-Utu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" selectedImage="trash" catalog="system" id="paZ-0r-qUb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nmt-Jr-7fG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222" y="-444"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UvS-2t-O87">
+            <objects>
+                <tabBarController id="TW2-TG-zbl" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Ie-1c-n62">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="5Ix-rd-UzD" kind="relationship" relationship="viewControllers" id="k1J-fI-pr1"/>
+                        <segue destination="AuY-9G-K8n" kind="relationship" relationship="viewControllers" id="nmE-A5-uD5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMg-4u-gyT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="330" y="-159"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ValerianaLogo" width="1080" height="1080"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="tray" catalog="system" width="128" height="88"/>
+        <namedColor name="blueBotton">
+            <color red="0.24705882352941178" green="0.51764705882352946" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="fontBase">
+            <color red="0.27058823529411763" green="0.29411764705882354" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

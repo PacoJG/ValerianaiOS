@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1093423492583-e9cbe7gt88v6t4iatrag7mdphen28g7j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1093423492583-e9cbe7gt88v6t4iatrag7mdphen28g7j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB0f5YnngRqlYc075syAlHXY-5PkjgZyMc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1093423492583</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>artisticpako.Valeriana</string>
+	<key>PROJECT_ID</key>
+	<string>valeriana-bbbaf</string>
+	<key>STORAGE_BUCKET</key>
+	<string>valeriana-bbbaf.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1093423492583:ios:b119ea7ea54c938b8ea142</string>
+</dict>
+</plist>
