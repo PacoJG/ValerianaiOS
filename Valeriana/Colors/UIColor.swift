@@ -14,5 +14,9 @@ public extension UIColor {
         static let fontBase = UIColor(named: "fontBase")
         static let redLight = UIColor(named: "redLight")
         static let blueBotton = UIColor(named: "blueBotton")
+        static let greenLight = UIColor(named: "greenLight")
+        static let gray = UIColor(named: "gray")
+        static let baseLight = UIColor(named: "baseLight")
+        static let greenDark = UIColor(named: "greenDark")
     }
 }

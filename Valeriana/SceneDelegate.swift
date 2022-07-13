@@ -28,9 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let escena = (scene as? UIWindowScene) else { return }
         
-        //let ventana = UIWindow(windowScene: escena)
+        let ventana = UIWindow(windowScene: escena)
         
-        /*self.window = ventana
+        self.window = ventana
         
         // validar si el usuario inició sesión
         Auth.auth().addStateDidChangeListener { auth , user in
@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             else {
                 self.cambiarVistaA("")
             }
-        }*/
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

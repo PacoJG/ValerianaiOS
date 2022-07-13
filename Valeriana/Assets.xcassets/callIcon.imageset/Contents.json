@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "ic_HomePressed1x.png",
+      "filename" : "callIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_HomePressed2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_HomePressed3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

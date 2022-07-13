@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E643D6B8287D3F3C003CF92F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E643D6B7287D3F3B003CF92F /* PaddingLabel.swift */; };
+		E643D6BA287D4C74003CF92F /* DirectorioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E643D6B9287D4C74003CF92F /* DirectorioViewController.swift */; };
+		E65125DC28792E5E003BBAF8 /* CustomTableViewCellHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65125DB28792E5E003BBAF8 /* CustomTableViewCellHome.swift */; };
 		E66B354A28641FD10056A329 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B354928641FD10056A329 /* SignUpViewController.swift */; };
 		E66B354E286431AC0056A329 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B354D286431AC0056A329 /* Utilities.swift */; };
 		E66D446F284076BF00DE0518 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66D446E284076BF00DE0518 /* CustomTextField.swift */; };
 		E66D4472284088C000DE0518 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66D4471284088C000DE0518 /* UIColor.swift */; };
 		E676E4BC283F243E0031254B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E676E4BB283F243E0031254B /* LoginViewController.swift */; };
+		E68434BF286D6A6200D9FD7C /* AddPacienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68434BE286D6A6200D9FD7C /* AddPacienteViewController.swift */; };
+		E686D650287E53A800F1AB9B /* DirectorioCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E686D64F287E53A800F1AB9B /* DirectorioCustomTableViewCell.swift */; };
+		E686D652287E573300F1AB9B /* HistoricoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E686D651287E573300F1AB9B /* HistoricoViewController.swift */; };
 		E6881B7F2833592A004A46BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6881B7E2833592A004A46BD /* AppDelegate.swift */; };
 		E6881B812833592A004A46BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6881B802833592A004A46BD /* SceneDelegate.swift */; };
 		E6881B832833592A004A46BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6881B822833592A004A46BD /* ViewController.swift */; };
@@ -19,12 +25,18 @@
 		E6881B882833592F004A46BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6881B872833592F004A46BD /* Assets.xcassets */; };
 		E6881B8B2833592F004A46BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6881B892833592F004A46BD /* LaunchScreen.storyboard */; };
 		E69454AE2854731700DACF94 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69454AD2854731700DACF94 /* CoreData.framework */; };
+		E6965029287E60A400D2820C /* HistoricoCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6965028287E60A400D2820C /* HistoricoCustomTableViewCell.swift */; };
 		E6A0644F283DD64300D5B24F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6A0644E283DD64300D5B24F /* GoogleService-Info.plist */; };
 		E6A0648A283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A06489283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf */; };
 		E6A0648C283DE2E100D5B24F /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A0648B283DE2E000D5B24F /* Nunito-VariableFont_wght.ttf */; };
 		E6A0648E283DE69E00D5B24F /* pauline_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A0648D283DE69E00D5B24F /* pauline_bold.ttf */; };
+		E6C38B1B28754F1000B1F7E4 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C38B1A28754F1000B1F7E4 /* CalendarViewController.swift */; };
 		E6C5B9A7286442AA0084EAF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C5B9A6286442AA0084EAF7 /* Constants.swift */; };
 		E6C5B9AB286445E90084EAF7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C5B9AA286445E90084EAF7 /* HomeViewController.swift */; };
+		E6C6A8122871575B0021F232 /* PaddingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6A8112871575A0021F232 /* PaddingTextfield.swift */; };
+		E6D34EC3287BD5F000C78306 /* DetailPacienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D34EC2287BD5F000C78306 /* DetailPacienteViewController.swift */; };
+		E6E8573E28790F380063A229 /* Paciente.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8573D28790F380063A229 /* Paciente.swift */; };
+		E6EDA72B28762C86000DB8CF /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDA72A28762C86000DB8CF /* CustomTabBarController.swift */; };
 		F887BE734459310247C6F992 /* Pods_Valeriana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE66BA8D9294A8E54B43F797 /* Pods_Valeriana.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,11 +44,17 @@
 		6B699E7A52DB4738B65357D2 /* Pods-Valeriana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valeriana.debug.xcconfig"; path = "Target Support Files/Pods-Valeriana/Pods-Valeriana.debug.xcconfig"; sourceTree = "<group>"; };
 		CE66BA8D9294A8E54B43F797 /* Pods_Valeriana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valeriana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16B22FE7F27D55690E56DD1 /* Pods-Valeriana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valeriana.release.xcconfig"; path = "Target Support Files/Pods-Valeriana/Pods-Valeriana.release.xcconfig"; sourceTree = "<group>"; };
+		E643D6B7287D3F3B003CF92F /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		E643D6B9287D4C74003CF92F /* DirectorioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorioViewController.swift; sourceTree = "<group>"; };
+		E65125DB28792E5E003BBAF8 /* CustomTableViewCellHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCellHome.swift; sourceTree = "<group>"; };
 		E66B354928641FD10056A329 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E66B354D286431AC0056A329 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E66D446E284076BF00DE0518 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E66D4471284088C000DE0518 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E676E4BB283F243E0031254B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E68434BE286D6A6200D9FD7C /* AddPacienteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPacienteViewController.swift; sourceTree = "<group>"; };
+		E686D64F287E53A800F1AB9B /* DirectorioCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorioCustomTableViewCell.swift; sourceTree = "<group>"; };
+		E686D651287E573300F1AB9B /* HistoricoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoViewController.swift; sourceTree = "<group>"; };
 		E6881B7B2833592A004A46BD /* Valeriana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valeriana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6881B7E2833592A004A46BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6881B802833592A004A46BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,12 +64,18 @@
 		E6881B8A2833592F004A46BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6881B8C2833592F004A46BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E69454AD2854731700DACF94 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E6965028287E60A400D2820C /* HistoricoCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoCustomTableViewCell.swift; sourceTree = "<group>"; };
 		E6A0644E283DD64300D5B24F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6A06489283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		E6A0648B283DE2E000D5B24F /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		E6A0648D283DE69E00D5B24F /* pauline_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pauline_bold.ttf; sourceTree = "<group>"; };
+		E6C38B1A28754F1000B1F7E4 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		E6C5B9A6286442AA0084EAF7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6C5B9AA286445E90084EAF7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E6C6A8112871575A0021F232 /* PaddingTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextfield.swift; sourceTree = "<group>"; };
+		E6D34EC2287BD5F000C78306 /* DetailPacienteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPacienteViewController.swift; sourceTree = "<group>"; };
+		E6E8573D28790F380063A229 /* Paciente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paciente.swift; sourceTree = "<group>"; };
+		E6EDA72A28762C86000DB8CF /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +114,7 @@
 			children = (
 				E66B354D286431AC0056A329 /* Utilities.swift */,
 				E6C5B9A6286442AA0084EAF7 /* Constants.swift */,
+				E6C6A8112871575A0021F232 /* PaddingTextfield.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -123,6 +148,7 @@
 		E6881B7D2833592A004A46BD /* Valeriana */ = {
 			isa = PBXGroup;
 			children = (
+				E6E8573C28790A920063A229 /* Custom */,
 				E66B354C286431880056A329 /* Helpers */,
 				E66D4470284088AE00DE0518 /* Colors */,
 				E6A06487283DE0E300D5B24F /* Resources */,
@@ -135,8 +161,13 @@
 				E6881B872833592F004A46BD /* Assets.xcassets */,
 				E6881B892833592F004A46BD /* LaunchScreen.storyboard */,
 				E6881B8C2833592F004A46BD /* Info.plist */,
-				E66D446E284076BF00DE0518 /* CustomTextField.swift */,
 				E6C5B9AA286445E90084EAF7 /* HomeViewController.swift */,
+				E68434BE286D6A6200D9FD7C /* AddPacienteViewController.swift */,
+				E6C38B1A28754F1000B1F7E4 /* CalendarViewController.swift */,
+				E6E8573D28790F380063A229 /* Paciente.swift */,
+				E6D34EC2287BD5F000C78306 /* DetailPacienteViewController.swift */,
+				E643D6B9287D4C74003CF92F /* DirectorioViewController.swift */,
+				E686D651287E573300F1AB9B /* HistoricoViewController.swift */,
 			);
 			path = Valeriana;
 			sourceTree = "<group>";
@@ -166,6 +197,19 @@
 				E6A06489283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E6E8573C28790A920063A229 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				E6EDA72A28762C86000DB8CF /* CustomTabBarController.swift */,
+				E66D446E284076BF00DE0518 /* CustomTextField.swift */,
+				E65125DB28792E5E003BBAF8 /* CustomTableViewCellHome.swift */,
+				E643D6B7287D3F3B003CF92F /* PaddingLabel.swift */,
+				E686D64F287E53A800F1AB9B /* DirectorioCustomTableViewCell.swift */,
+				E6965028287E60A400D2820C /* HistoricoCustomTableViewCell.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,16 +331,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6E8573E28790F380063A229 /* Paciente.swift in Sources */,
+				E6965029287E60A400D2820C /* HistoricoCustomTableViewCell.swift in Sources */,
 				E676E4BC283F243E0031254B /* LoginViewController.swift in Sources */,
 				E66B354A28641FD10056A329 /* SignUpViewController.swift in Sources */,
 				E66D4472284088C000DE0518 /* UIColor.swift in Sources */,
+				E68434BF286D6A6200D9FD7C /* AddPacienteViewController.swift in Sources */,
 				E6881B832833592A004A46BD /* ViewController.swift in Sources */,
+				E643D6B8287D3F3C003CF92F /* PaddingLabel.swift in Sources */,
 				E6881B7F2833592A004A46BD /* AppDelegate.swift in Sources */,
 				E6C5B9AB286445E90084EAF7 /* HomeViewController.swift in Sources */,
+				E686D652287E573300F1AB9B /* HistoricoViewController.swift in Sources */,
 				E6881B812833592A004A46BD /* SceneDelegate.swift in Sources */,
+				E6EDA72B28762C86000DB8CF /* CustomTabBarController.swift in Sources */,
+				E643D6BA287D4C74003CF92F /* DirectorioViewController.swift in Sources */,
+				E686D650287E53A800F1AB9B /* DirectorioCustomTableViewCell.swift in Sources */,
+				E6C38B1B28754F1000B1F7E4 /* CalendarViewController.swift in Sources */,
+				E6D34EC3287BD5F000C78306 /* DetailPacienteViewController.swift in Sources */,
 				E66B354E286431AC0056A329 /* Utilities.swift in Sources */,
+				E6C6A8122871575B0021F232 /* PaddingTextfield.swift in Sources */,
 				E66D446F284076BF00DE0518 /* CustomTextField.swift in Sources */,
 				E6C5B9A7286442AA0084EAF7 /* Constants.swift in Sources */,
+				E65125DC28792E5E003BBAF8 /* CustomTableViewCellHome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +500,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Valeriana/Valeriana.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 743CHRXJ24;
@@ -461,6 +519,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = artisticpako.Valeriana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -473,6 +532,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Valeriana/Valeriana.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 743CHRXJ24;
@@ -490,6 +551,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = artisticpako.Valeriana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -8,19 +8,32 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var fisrtNameTextField: CustomTextField!
     @IBOutlet weak var secondNameTextField: CustomTextField!
-    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var passwordTextField: CustomTextField!
     @IBOutlet weak var emailTextField: CustomTextField!
     
+    var ai = UIActivityIndicatorView()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        errorLabel.alpha = 0
+        view.backgroundColor = UIColor(named: "baseLight")
+        ai.style = .large
+        ai.color = .red
+        ai.hidesWhenStopped = true
+        ai.center = self.view.center
+        self.view.addSubview(ai)
         emailTextField.setupLeftImageView(image: UIImage(named: "mail")!)
         passwordTextField.setupLeftImageView(image: UIImage(named: "lock")!)
         fisrtNameTextField.setupLeftImageView(image: UIImage(named: "user")!)
@@ -29,66 +42,126 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func validateFields() -> String? {
-        
-        if fisrtNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || secondNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Please fill in all fields"
-        }
-        
-        //validar la seguridad del password
-        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if Utilities.isPasswordValid(cleanedPassword) == false {
-            return "Porfavor ingrese una contraseña con 8 caracteres, que incluya un caracter especial y un número"
-        }
-        
-        
-        return nil
-    }
-    
     @IBAction func signUpTapped(_ sender: Any) {
         
         //validar los campos
-        let error = validateFields()
-        if error != nil {
-            showError(error!)
+        //let error = validateFields()
+        if validateForm() {
+            signup()
         }
         else{
-            
-            let fisrtName = fisrtNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let secondName = secondNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                
-                if error != nil {
-                    //hubo un error al crear el usuario
-                    self.showError("Error al crear el usuario")
-                }
-                else{
-                    //el usuario se creo correctamente, agregar el nombre y apellido
-                    let db =  Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName":fisrtName, "secondName": secondName, "uid": result!.user.uid ]) { (error) in
-                        
-                        if error != nil{
-                            self.showError("Error saving user data")
-                        }
-                    }
-                    //self.transitionToHome()
-                    DispatchQueue.main.async {
-                        //self.ai.stopAnimating()
-                        self.performSegue(withIdentifier: "goHome2", sender: nil)
-                    }
-                    
-                }
-            }
+            setMessage("Error", "¡Capture correctamente sus datos!")
         }
     }
     
-    func showError(_ message:String){
-        errorLabel.text = message
-        errorLabel.alpha = 1
+    
+    func isValidEmailAddress(emailAddressString: String) -> Bool {
+      
+      var returnValue = true
+      let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+      
+      do {
+          let regex = try NSRegularExpression(pattern: emailRegEx)
+          let nsString = emailAddressString as NSString
+          let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
+          
+          if results.count == 0
+          {
+              returnValue = false
+          }
+          
+      } catch let error as NSError {
+          print("invalid regex: \(error.localizedDescription)")
+          returnValue = false
+      }
+      
+      return  returnValue
+    }
+    
+    func validateEmail() -> Bool {
+        if emailTextField.text != "" {
+            if isValidEmailAddress(emailAddressString: emailTextField.text!) {
+                return true
+            }
+            else {
+                setMessage("Error", "Correo electrónico no válido")
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+    
+    func setMessage(_ title:String , _ message:String ){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertAction.Style.destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func validatePassword() -> Bool {
+        if passwordTextField.text != "" {
+            return true
+        } else {
+            setMessage("Error", "Capture password")
+            return false
+        }
+    }
+    
+    func validateUserName() -> Bool {
+        if fisrtNameTextField.text != "" {
+            return true
+        } else {
+            setMessage("Error", "Capture nombre")
+            return false
+        }
+    }
+    
+    func validateUserSecondName() -> Bool {
+        if secondNameTextField.text != "" {
+            return true
+        } else {
+            setMessage("Error", "Capture nombre")
+            return false
+        }
+    }
+    
+    func validateForm() -> Bool {
+        if validateEmail() && validatePassword() && validateUserName() && validateUserSecondName() {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func signup(){
+        
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
+            
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.setMessage("Error de autenticación", "Usuario o password no encontrado")
+                }
+            }
+            else{
+                //el usuario se creo correctamente, agregar el nombre y apellido
+                guard let uid = result?.user.uid else { return }
+                let values = ["email":self.emailTextField.text, "firstName":self.fisrtNameTextField.text, "secondName":self.secondNameTextField.text]
+                Database.database().reference().child("users").child(uid).updateChildValues(values, withCompletionBlock:  { (error, ref) in
+                    if let error = error {
+                        print("Error al crear el usuario", error.localizedDescription)
+                        return
+                    }
+                    
+                    print("Usuario correctamente agregado")
+                })
+                //self.transitionToHome()
+                DispatchQueue.main.async {
+                    //self.ai.stopAnimating()
+                    self.performSegue(withIdentifier: "goHome2", sender: nil)
+                }
+                
+            }
+        }
     }
     
 }
