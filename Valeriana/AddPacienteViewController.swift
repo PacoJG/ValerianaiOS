@@ -31,6 +31,7 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     private let storage = Storage.storage().reference()
     
     
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tagTextField: UITextField!
     let df = DateFormatter()
