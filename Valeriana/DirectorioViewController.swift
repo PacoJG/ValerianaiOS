@@ -21,6 +21,7 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var pacientesDir = [Paciente]()
     var filterpacientesDir = [Paciente]()
+    var tmp: [String] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -77,10 +78,15 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
                     let indexPath = IndexPath(row: row-1, section: 0)
                     self?.table.insertRows(at: [indexPath], with: .automatic)
                 }*/
-                self?.pacientesDir.append(paciente)
-                self?.filterpacientesDir.append(paciente)
-                self?.table?.reloadData()
+                if ((self?.tmp.contains(paciente.sNombre)) != true) {
+                    self?.tmp.append(paciente.sNombre)
+                    self?.pacientesDir.append(paciente)
+                    self?.filterpacientesDir.append(paciente)
+                    self?.table?.reloadData()
+                }
+                
             }
+            //print(self?.tmp)
         }
     }
     

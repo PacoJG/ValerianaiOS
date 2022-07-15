@@ -24,8 +24,8 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var nombretextField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var backButton: UIButton!
     //@IBOutlet weak var tapToChangeProfile: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var urlImageProfileLabel: UILabel!
     
     private let storage = Storage.storage().reference()
@@ -47,6 +47,11 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backButton.setTitle("", for: .normal)
+        let backImage = UIImage(named: "backIcon.png")
+        backButton.setImage(backImage?.withRenderingMode(.alwaysOriginal), for: .normal)
+        
         tagTextField.inputView = pickerTag
         pickerTag.dataSource = self
         pickerTag.delegate = self
@@ -120,6 +125,10 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func tapToChangeProfile(){
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -135,6 +144,19 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func guardarPaciente(_ sender: Any) {
         view.endEditing(true)
+        if validateForm(){
+            let values = ["nombre":nombretextField.text!, "fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":String(asuntoTextView.text!), "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!]
+            Database.database().reference().child("pacientes").childByAutoId().updateChildValues(values, withCompletionBlock:  { (error, ref) in
+                if let error = error {
+                    print("Error al crear al paciente", error.localizedDescription)
+                    return
+                }
+                
+                self.setMessage("", "Paciente agregado con exito")
+            })
+        }else{
+            self.setMessage("", "Error al crear al usuario. Asegurese que los campos obligatorios esten llenos")
+        }
         /*let db =  Firestore.firestore()
         db.collection("pacientes").document(nombretextField.text!).setData(["fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!]) { (error) in
             
@@ -142,15 +164,6 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 self.showError("Error saving paciente data")
             }
         }*/
-        let values = ["nombre":nombretextField.text!, "fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!]
-        Database.database().reference().child("pacientes").childByAutoId().updateChildValues(values, withCompletionBlock:  { (error, ref) in
-            if let error = error {
-                print("Error al crear al paciente", error.localizedDescription)
-                return
-            }
-            
-            print("Paciente correctamente agregado")
-        })
         
     }
     
@@ -186,10 +199,6 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
-    func showError(_ message:String){
-        errorLabel.text = message
-        errorLabel.alpha = 1
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return phoneNumberTextView.resignFirstResponder()
@@ -197,6 +206,56 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func setMessage(_ title:String , _ message:String ){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertAction.Style.destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func validateName() -> Bool {
+        if nombretextField.text != "" {
+            return true
+        } else {
+            setMessage("Error", "Capture el nombre del paciente")
+            return false
+        }
+    }
+    
+    func validateAsunto() -> Bool {
+        if asuntoTextView.text != "" {
+            return true
+        } else {
+            setMessage("Error", "Capture el asunto del paciente")
+            return false
+        }
+    }
+    
+    func validateFecha() -> Bool {
+        if dateLabel.text != "" {
+            return true
+        } else {
+            setMessage("Error", "Capture el la fecha de la consulta")
+            return false
+        }
+    }
+    
+    func validateTag() -> Bool {
+        if tagTextField.text != "" {
+            return true
+        } else {
+            setMessage("Error", "Capture el tag de la consulta")
+            return false
+        }
+    }
+    
+    func validateForm() -> Bool {
+        if validateName() && validateAsunto() && validateFecha() && validateTag() {
+            return true
+        } else {
+            return false
+        }
     }
 
 }

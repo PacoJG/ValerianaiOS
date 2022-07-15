@@ -20,6 +20,8 @@ class CustomTableViewCellHome: UITableViewCell {
         super.awakeFromNib()
         layoutMargins = UIEdgeInsets(top: 8,left: 0,bottom: 8,right: 0)
         asuntoTextview.layer.backgroundColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00).cgColor
+        tagLabel.layer.masksToBounds = true
+        tagLabel.layer.cornerRadius = 12
         // Initialization code
     }
 

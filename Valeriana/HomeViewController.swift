@@ -35,39 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.delegate = self
         table.dataSource = self
         loadUserData()
-        //getData()
-        //df.dateFormat = "MMM d, yyyy"
-        //let dateString = df.string(from: date)
-        //let ref = Database.database().reference()
-        //DataEventType.value, with:
-        /*ref.child("pacientes").queryOrdered(byChild: "fecha").queryEqual(toValue: dateString).observe(.childAdded) { [weak self](snapshot) in
-            print("Lo descargado",snapshot.value!)
-            //print(dateString)
-            //let key = snapshot.key
-            guard let value = snapshot.value as? [String:Any] else {return}
-            if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String {
-                let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage)
-                self?.pacientes.append(paciente)
-                if let row = self?.pacientes.count{
-                    let indexPath = IndexPath(row: row-1, section: 0)
-                    self?.table.insertRows(at: [indexPath], with: .automatic)
-                }
-            }
-            
-            
-            self?.table?.reloadData()
-        }*/
-        //table.backgroundView = UIView()
-        //table.backgroundColor = .clear
-        //table.separatorStyle = .none
-        //table.showsVerticalScrollIndicator = false
         
-        /*let refHandle = DataHolder.sharedInstance.firDataBaseRef.child("pacientes").observe(DataEventType.value, with: { (snapshot) in
-            print("Lo descargado"snapshot.value)
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-        })*/
-        
-    
 
         // Do any additional setup after loading the view.
     }
@@ -96,6 +64,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.fechaLabel?.text = paciente.sFecha
         cell.nombreLabel?.text = paciente.sNombre
         cell.asuntoTextview?.text = paciente.sAsunto
+        cell.layer.cornerRadius = 12
         cell.layer.borderColor = UIColor.valerianaColor.baseLight?.cgColor
         cell.layer.borderWidth = 8
         return cell

@@ -15,6 +15,7 @@ class DetailPacienteViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var urlImageLabel: UILabel!
@@ -38,6 +39,9 @@ class DetailPacienteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tagLabel.layer.masksToBounds = true
+        tagLabel.layer.cornerRadius = 12
         
         //print(keyPaciente)
         
@@ -72,6 +76,7 @@ class DetailPacienteViewController: UIViewController {
         numeroCelulartextView.layer.borderColor = UIColor.valerianaColor.gray?.cgColor
         numeroCelulartextView.layer.backgroundColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00).cgColor
         
+        navigationItem.hidesBackButton = true
         
         callButton.setTitle("", for: .normal)
         let callImage = UIImage(named: "callIcon.png")
@@ -80,6 +85,10 @@ class DetailPacienteViewController: UIViewController {
         messageButton.setTitle("", for: .normal)
         let messageImage = UIImage(named: "messageIcon.png")
         messageButton.setImage(messageImage?.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        backButton.setTitle("", for: .normal)
+        let backImage = UIImage(named: "backIcon.png")
+        backButton.setImage(backImage?.withRenderingMode(.alwaysOriginal), for: .normal)
         
         imageProfile.loadFrom(URLAddress: urlImage)
         
@@ -94,21 +103,29 @@ class DetailPacienteViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func callButton(_ sender: Any) {
         callNumber(phoneNumber: numeroCelular)
     }
+    
     @IBAction func EditarData(_ sender: Any) {
         view.endEditing(true)
         
         let values = ["nombre":nameLabel.text!, "fecha":fecha, "tag":tagLabel.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":IndicacionesTextView.text!, "numero":numeroCelulartextView.text!, "image":urlImage]
         Database.database().reference().child("pacientes").child(keyPaciente).updateChildValues(values, withCompletionBlock:  { [self] (error, ref) in
             if let error = error {
-                print("Error al editar al paciente", error.localizedDescription)
+                let alert = UIAlertController(title: "", message: "Ocurrio un error al editar al paciente\(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                present(alert, animated: true)
                 return
+            } else{
+                let alert = UIAlertController(title: "", message: "Edición de paciente exitosa", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                present(alert, animated: true)
             }
-            
-            print("Paciente correctamente editado")
-            
         })
         
     }

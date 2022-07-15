@@ -33,11 +33,11 @@
 		E6A0648A283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A06489283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf */; };
 		E6A0648C283DE2E100D5B24F /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A0648B283DE2E000D5B24F /* Nunito-VariableFont_wght.ttf */; };
 		E6A0648E283DE69E00D5B24F /* pauline_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A0648D283DE69E00D5B24F /* pauline_bold.ttf */; };
-		E6C38B1B28754F1000B1F7E4 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C38B1A28754F1000B1F7E4 /* CalendarViewController.swift */; };
 		E6C5B9A7286442AA0084EAF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C5B9A6286442AA0084EAF7 /* Constants.swift */; };
 		E6C5B9AB286445E90084EAF7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C5B9AA286445E90084EAF7 /* HomeViewController.swift */; };
 		E6C6A8122871575B0021F232 /* PaddingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6A8112871575A0021F232 /* PaddingTextfield.swift */; };
 		E6D34EC3287BD5F000C78306 /* DetailPacienteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D34EC2287BD5F000C78306 /* DetailPacienteViewController.swift */; };
+		E6DE7C3E288103E500D4792E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DE7C3D288103E500D4792E /* CalendarViewController.swift */; };
 		E6E8573E28790F380063A229 /* Paciente.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8573D28790F380063A229 /* Paciente.swift */; };
 		E6EDA72B28762C86000DB8CF /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDA72A28762C86000DB8CF /* CustomTabBarController.swift */; };
 		F887BE734459310247C6F992 /* Pods_Valeriana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE66BA8D9294A8E54B43F797 /* Pods_Valeriana.framework */; };
@@ -75,11 +75,11 @@
 		E6A06489283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		E6A0648B283DE2E000D5B24F /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		E6A0648D283DE69E00D5B24F /* pauline_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pauline_bold.ttf; sourceTree = "<group>"; };
-		E6C38B1A28754F1000B1F7E4 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		E6C5B9A6286442AA0084EAF7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6C5B9AA286445E90084EAF7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E6C6A8112871575A0021F232 /* PaddingTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextfield.swift; sourceTree = "<group>"; };
 		E6D34EC2287BD5F000C78306 /* DetailPacienteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPacienteViewController.swift; sourceTree = "<group>"; };
+		E6DE7C3D288103E500D4792E /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		E6E8573D28790F380063A229 /* Paciente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paciente.swift; sourceTree = "<group>"; };
 		E6EDA72A28762C86000DB8CF /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,13 +169,13 @@
 				E6881B8C2833592F004A46BD /* Info.plist */,
 				E6C5B9AA286445E90084EAF7 /* HomeViewController.swift */,
 				E68434BE286D6A6200D9FD7C /* AddPacienteViewController.swift */,
-				E6C38B1A28754F1000B1F7E4 /* CalendarViewController.swift */,
 				E6E8573D28790F380063A229 /* Paciente.swift */,
 				E6D34EC2287BD5F000C78306 /* DetailPacienteViewController.swift */,
 				E643D6B9287D4C74003CF92F /* DirectorioViewController.swift */,
 				E686D651287E573300F1AB9B /* HistoricoViewController.swift */,
 				E679F7BF287FD893001ADC8C /* CalendarHelper.swift */,
 				E679F7C1287FDDCC001ADC8C /* CalendarCell.swift */,
+				E6DE7C3D288103E500D4792E /* CalendarViewController.swift */,
 			);
 			path = Valeriana;
 			sourceTree = "<group>";
@@ -345,6 +345,7 @@
 				E676E4BC283F243E0031254B /* LoginViewController.swift in Sources */,
 				E66B354A28641FD10056A329 /* SignUpViewController.swift in Sources */,
 				E66D4472284088C000DE0518 /* UIColor.swift in Sources */,
+				E6DE7C3E288103E500D4792E /* CalendarViewController.swift in Sources */,
 				E68434BF286D6A6200D9FD7C /* AddPacienteViewController.swift in Sources */,
 				E6881B832833592A004A46BD /* ViewController.swift in Sources */,
 				E679F7C2287FDDCC001ADC8C /* CalendarCell.swift in Sources */,
@@ -358,7 +359,6 @@
 				E6EDA72B28762C86000DB8CF /* CustomTabBarController.swift in Sources */,
 				E643D6BA287D4C74003CF92F /* DirectorioViewController.swift in Sources */,
 				E686D650287E53A800F1AB9B /* DirectorioCustomTableViewCell.swift in Sources */,
-				E6C38B1B28754F1000B1F7E4 /* CalendarViewController.swift in Sources */,
 				E6D34EC3287BD5F000C78306 /* DetailPacienteViewController.swift in Sources */,
 				E66B354E286431AC0056A329 /* Utilities.swift in Sources */,
 				E6C6A8122871575B0021F232 /* PaddingTextfield.swift in Sources */,
