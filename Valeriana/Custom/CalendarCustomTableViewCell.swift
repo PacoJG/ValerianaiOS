@@ -14,7 +14,7 @@ class CalendarCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var asuntoTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
-    
+    @IBOutlet weak var timeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         layoutMargins = UIEdgeInsets(top: 8,left: 0,bottom: 8,right: 0)

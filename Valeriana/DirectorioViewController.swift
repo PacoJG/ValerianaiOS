@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class DirectorioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -22,6 +23,26 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
     var pacientesDir = [Paciente]()
     var filterpacientesDir = [Paciente]()
     var tmp: [String] = []
+    let userID = Auth.auth().currentUser!.uid
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchBar.setImage(UIImage(named: "searchIcon"), for: .search, state: .normal)
+        searchBar.searchTextPositionAdjustment = UIOffset(horizontal: 10.0, vertical: 0.0)
+        /*.backgroundColor = UIColor.clear
+        searchBar.tintColor = UIColor.clear
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.isTranslucent = true*/
+        //searchBar.customize()
+        self.searchBar.searchTextField.borderStyle = .none
+        self.searchBar.searchTextField.layer.cornerRadius = 6
+        self.searchBar.searchTextField.layer.borderWidth = 1
+        self.searchBar.searchTextField.textColor = UIColor.valerianaColor.fontBase
+        //self.searchBar.searchTextField.font = UIFont(name: "OpenSans", size: 12)
+        self.searchBar.searchTextField.layer.borderColor = UIColor.valerianaColor.fontBase?.cgColor
+        self.searchBar.searchTextField.backgroundColor = .white
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,16 +70,37 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.profileImage.loadFrom(URLAddress: paciente.sImage)
         cell.layer.borderColor = UIColor.valerianaColor.baseLight?.cgColor
         cell.layer.borderWidth = 8
+        cell.callButton.tag = indexPath.row
+        cell.callButton.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
+        let backgroundvIEW = UIView()
+        backgroundvIEW.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = backgroundvIEW
         return cell
     }
     
+    @objc func btnAction(sender: UIButton){
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        let pacienteSelected = filterpacientesDir[indexPath.row]
+        callNumber(phoneNumber: pacienteSelected.sPhone)
+    }
+    
+    private func callNumber(phoneNumber:String) {
+      if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+        let application:UIApplication = UIApplication.shared
+        if (application.canOpenURL(phoneCallURL)) {
+            application.open(phoneCallURL, options: [:], completionHandler: nil)
+        }
+      }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "historialPaciente") as? HistoricoViewController
-        let pacientes = pacientesDir[indexPath.row]
-        vc?.name = pacientes.sNombre
-        vc?.urlImage = pacientes.sImage
-        vc?.phoneNumber = pacientes.sPhone
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "historialPaciente") as? HistoricoViewController{
+            let pacientes = filterpacientesDir[indexPath.row]
+            vc.name = pacientes.sNombre
+            vc.urlImage = pacientes.sImage
+            vc.phoneNumber = pacientes.sPhone
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     
@@ -66,13 +108,13 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         //df.dateFormat = "MMM d, yyyy"
         //let dateString = df.string(from: date)
         let ref = Database.database().reference()
-        ref.child("pacientes").observe(DataEventType.childAdded) { [weak self](snapshot) in
-            print("Lo descargado",snapshot.value!)
+        ref.child("pacientes").child(userID).observe(DataEventType.childAdded) { [weak self](snapshot) in
+            //print("Lo descargado",snapshot.value!)
             //print(dateString)
             //let key = snapshot.key
             guard let value = snapshot.value as? [String:Any] else {return}
-            if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String {
-                let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage)
+            if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String, let time = value["time"] as? String {
+                let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage, sTime: time)
                 /*self?.pacientes.append(paciente)
                 if let row = self?.pacientes.count{
                     let indexPath = IndexPath(row: row-1, section: 0)

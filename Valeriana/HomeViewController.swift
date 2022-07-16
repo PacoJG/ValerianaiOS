@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     let date = Date()
     let df = DateFormatter()
     var pacientes = [Paciente]()
+    let userID = Auth.auth().currentUser!.uid
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,6 +36,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.delegate = self
         table.dataSource = self
         loadUserData()
+        //print("EL USUARIO TIENE UN ID: \(userID)")
         
 
         // Do any additional setup after loading the view.
@@ -64,6 +66,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.fechaLabel?.text = paciente.sFecha
         cell.nombreLabel?.text = paciente.sNombre
         cell.asuntoTextview?.text = paciente.sAsunto
+        cell.timeLabel?.text = paciente.sTime
         cell.layer.cornerRadius = 12
         cell.layer.borderColor = UIColor.valerianaColor.baseLight?.cgColor
         cell.layer.borderWidth = 8
@@ -84,27 +87,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         vc?.keyPaciente = pacientes.sKey
         vc?.fecha = pacientes.sFecha
         vc?.urlImage = pacientes.sImage
+        vc?.time = pacientes.sTime
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        
-        // Pass the selected object to the new view controller.
-        
-    }
 
     func getData(){
         df.dateFormat = "MMM d, yyyy"
         let dateString = df.string(from: date)
         let ref = Database.database().reference()
-        ref.child("pacientes").queryOrdered(byChild: "fecha").queryEqual(toValue: dateString).observe(DataEventType.childAdded) { [weak self](snapshot) in
+        ref.child("pacientes").child(userID).queryOrdered(byChild: "fecha").queryEqual(toValue: dateString).observe(DataEventType.childAdded) { [weak self](snapshot) in
             print("Lo descargado",snapshot.value!)
             //print(dateString)
             //let key = snapshot.key
             guard let value = snapshot.value as? [String:Any] else {return}
-            if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String {
-                let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage)
+            if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String, let time = value["time"] as? String {
+                let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage, sTime: time)
                 /*self?.pacientes.append(paciente)
                 if let row = self?.pacientes.count{
                     let indexPath = IndexPath(row: row-1, section: 0)

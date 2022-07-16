@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7D6E39101438323B8168CD /* Pods_Valeriana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459408AB0638FEA5158274BE /* Pods_Valeriana.framework */; };
+		E61F89E22882490100FBE940 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61F89E12882490100FBE940 /* PopUpViewController.swift */; };
+		E61F89E4288272A700FBE940 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F89E3288272A600FBE940 /* Network.framework */; };
+		E61F89E6288275BB00FBE940 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61F89E5288275BB00FBE940 /* NetworkMonitor.swift */; };
+		E61F89E82882828A00FBE940 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61F89E72882828A00FBE940 /* ProfileViewController.swift */; };
+		E61F89EA28828A8D00FBE940 /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61F89E928828A8D00FBE940 /* NetworkErrorViewController.swift */; };
+		E61F89EE28829B7300FBE940 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61F89ED28829B7300FBE940 /* LoginViewController.swift */; };
+		E61F8A142882B68D00FBE940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E61F8A132882B68D00FBE940 /* GoogleService-Info.plist */; };
 		E643D6B8287D3F3C003CF92F /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E643D6B7287D3F3B003CF92F /* PaddingLabel.swift */; };
 		E643D6BA287D4C74003CF92F /* DirectorioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E643D6B9287D4C74003CF92F /* DirectorioViewController.swift */; };
 		E65125DC28792E5E003BBAF8 /* CustomTableViewCellHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65125DB28792E5E003BBAF8 /* CustomTableViewCellHome.swift */; };
@@ -14,7 +22,6 @@
 		E66B354E286431AC0056A329 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66B354D286431AC0056A329 /* Utilities.swift */; };
 		E66D446F284076BF00DE0518 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66D446E284076BF00DE0518 /* CustomTextField.swift */; };
 		E66D4472284088C000DE0518 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66D4471284088C000DE0518 /* UIColor.swift */; };
-		E676E4BC283F243E0031254B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E676E4BB283F243E0031254B /* LoginViewController.swift */; };
 		E679F7C0287FD893001ADC8C /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679F7BF287FD893001ADC8C /* CalendarHelper.swift */; };
 		E679F7C2287FDDCC001ADC8C /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679F7C1287FDDCC001ADC8C /* CalendarCell.swift */; };
 		E679F7C4287FE108001ADC8C /* CalendarCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E679F7C3287FE108001ADC8C /* CalendarCustomTableViewCell.swift */; };
@@ -29,7 +36,6 @@
 		E6881B8B2833592F004A46BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6881B892833592F004A46BD /* LaunchScreen.storyboard */; };
 		E69454AE2854731700DACF94 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69454AD2854731700DACF94 /* CoreData.framework */; };
 		E6965029287E60A400D2820C /* HistoricoCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6965028287E60A400D2820C /* HistoricoCustomTableViewCell.swift */; };
-		E6A0644F283DD64300D5B24F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6A0644E283DD64300D5B24F /* GoogleService-Info.plist */; };
 		E6A0648A283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A06489283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf */; };
 		E6A0648C283DE2E100D5B24F /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A0648B283DE2E000D5B24F /* Nunito-VariableFont_wght.ttf */; };
 		E6A0648E283DE69E00D5B24F /* pauline_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6A0648D283DE69E00D5B24F /* pauline_bold.ttf */; };
@@ -40,13 +46,19 @@
 		E6DE7C3E288103E500D4792E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DE7C3D288103E500D4792E /* CalendarViewController.swift */; };
 		E6E8573E28790F380063A229 /* Paciente.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8573D28790F380063A229 /* Paciente.swift */; };
 		E6EDA72B28762C86000DB8CF /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDA72A28762C86000DB8CF /* CustomTabBarController.swift */; };
-		F887BE734459310247C6F992 /* Pods_Valeriana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE66BA8D9294A8E54B43F797 /* Pods_Valeriana.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6B699E7A52DB4738B65357D2 /* Pods-Valeriana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valeriana.debug.xcconfig"; path = "Target Support Files/Pods-Valeriana/Pods-Valeriana.debug.xcconfig"; sourceTree = "<group>"; };
-		CE66BA8D9294A8E54B43F797 /* Pods_Valeriana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valeriana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E16B22FE7F27D55690E56DD1 /* Pods-Valeriana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valeriana.release.xcconfig"; path = "Target Support Files/Pods-Valeriana/Pods-Valeriana.release.xcconfig"; sourceTree = "<group>"; };
+		459408AB0638FEA5158274BE /* Pods_Valeriana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Valeriana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		522113374160FE495DC7CF01 /* Pods-Valeriana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valeriana.debug.xcconfig"; path = "Target Support Files/Pods-Valeriana/Pods-Valeriana.debug.xcconfig"; sourceTree = "<group>"; };
+		E24EB5343438AA6ED32500C9 /* Pods-Valeriana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Valeriana.release.xcconfig"; path = "Target Support Files/Pods-Valeriana/Pods-Valeriana.release.xcconfig"; sourceTree = "<group>"; };
+		E61F89E12882490100FBE940 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		E61F89E3288272A600FBE940 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		E61F89E5288275BB00FBE940 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		E61F89E72882828A00FBE940 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E61F89E928828A8D00FBE940 /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
+		E61F89ED28829B7300FBE940 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E61F8A132882B68D00FBE940 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E643D6B7287D3F3B003CF92F /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		E643D6B9287D4C74003CF92F /* DirectorioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorioViewController.swift; sourceTree = "<group>"; };
 		E65125DB28792E5E003BBAF8 /* CustomTableViewCellHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCellHome.swift; sourceTree = "<group>"; };
@@ -54,7 +66,6 @@
 		E66B354D286431AC0056A329 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E66D446E284076BF00DE0518 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E66D4471284088C000DE0518 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		E676E4BB283F243E0031254B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E679F7BF287FD893001ADC8C /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		E679F7C1287FDDCC001ADC8C /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		E679F7C3287FE108001ADC8C /* CalendarCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -71,7 +82,6 @@
 		E6881B8C2833592F004A46BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E69454AD2854731700DACF94 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E6965028287E60A400D2820C /* HistoricoCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoCustomTableViewCell.swift; sourceTree = "<group>"; };
-		E6A0644E283DD64300D5B24F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6A06489283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		E6A0648B283DE2E000D5B24F /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		E6A0648D283DE69E00D5B24F /* pauline_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pauline_bold.ttf; sourceTree = "<group>"; };
@@ -90,7 +100,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E69454AE2854731700DACF94 /* CoreData.framework in Frameworks */,
-				F887BE734459310247C6F992 /* Pods_Valeriana.framework in Frameworks */,
+				E61F89E4288272A700FBE940 /* Network.framework in Frameworks */,
+				CE7D6E39101438323B8168CD /* Pods_Valeriana.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +111,8 @@
 		C8E203565B5AD0C495068674 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6B699E7A52DB4738B65357D2 /* Pods-Valeriana.debug.xcconfig */,
-				E16B22FE7F27D55690E56DD1 /* Pods-Valeriana.release.xcconfig */,
+				522113374160FE495DC7CF01 /* Pods-Valeriana.debug.xcconfig */,
+				E24EB5343438AA6ED32500C9 /* Pods-Valeriana.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -109,8 +120,8 @@
 		E66B354B28641FDA0056A329 /* Login&Register */ = {
 			isa = PBXGroup;
 			children = (
-				E676E4BB283F243E0031254B /* LoginViewController.swift */,
 				E66B354928641FD10056A329 /* SignUpViewController.swift */,
+				E61F89ED28829B7300FBE940 /* LoginViewController.swift */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -154,11 +165,11 @@
 		E6881B7D2833592A004A46BD /* Valeriana */ = {
 			isa = PBXGroup;
 			children = (
+				E61F8A132882B68D00FBE940 /* GoogleService-Info.plist */,
 				E6E8573C28790A920063A229 /* Custom */,
 				E66B354C286431880056A329 /* Helpers */,
 				E66D4470284088AE00DE0518 /* Colors */,
 				E6A06487283DE0E300D5B24F /* Resources */,
-				E6A0644E283DD64300D5B24F /* GoogleService-Info.plist */,
 				E66B354B28641FDA0056A329 /* Login&Register */,
 				E6881B7E2833592A004A46BD /* AppDelegate.swift */,
 				E6881B802833592A004A46BD /* SceneDelegate.swift */,
@@ -176,6 +187,10 @@
 				E679F7BF287FD893001ADC8C /* CalendarHelper.swift */,
 				E679F7C1287FDDCC001ADC8C /* CalendarCell.swift */,
 				E6DE7C3D288103E500D4792E /* CalendarViewController.swift */,
+				E61F89E12882490100FBE940 /* PopUpViewController.swift */,
+				E61F89E5288275BB00FBE940 /* NetworkMonitor.swift */,
+				E61F89E72882828A00FBE940 /* ProfileViewController.swift */,
+				E61F89E928828A8D00FBE940 /* NetworkErrorViewController.swift */,
 			);
 			path = Valeriana;
 			sourceTree = "<group>";
@@ -183,8 +198,9 @@
 		E69454AC2854731700DACF94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E61F89E3288272A600FBE940 /* Network.framework */,
 				E69454AD2854731700DACF94 /* CoreData.framework */,
-				CE66BA8D9294A8E54B43F797 /* Pods_Valeriana.framework */,
+				459408AB0638FEA5158274BE /* Pods_Valeriana.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,17 +244,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6881B8F2833592F004A46BD /* Build configuration list for PBXNativeTarget "Valeriana" */;
 			buildPhases = (
-				35CAE1EA457EC0957EBC9C57 /* [CP] Check Pods Manifest.lock */,
+				F6CC15ADEA6902D239CED454 /* [CP] Check Pods Manifest.lock */,
 				E6881B772833592A004A46BD /* Sources */,
 				E6881B782833592A004A46BD /* Frameworks */,
 				E6881B792833592A004A46BD /* Resources */,
-				B5D590C3CF094A598D0D3BE4 /* [CP] Embed Pods Frameworks */,
+				8A3F338F9CA50A9D89AAA628 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Valeriana;
+			packageProductDependencies = (
+			);
 			productName = Valeriana;
 			productReference = E6881B7B2833592A004A46BD /* Valeriana.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +285,8 @@
 				Base,
 			);
 			mainGroup = E6881B722833592A004A46BD;
+			packageReferences = (
+			);
 			productRefGroup = E6881B7C2833592A004A46BD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -283,18 +303,35 @@
 			files = (
 				E6881B8B2833592F004A46BD /* LaunchScreen.storyboard in Resources */,
 				E6A0648E283DE69E00D5B24F /* pauline_bold.ttf in Resources */,
-				E6A0644F283DD64300D5B24F /* GoogleService-Info.plist in Resources */,
 				E6881B882833592F004A46BD /* Assets.xcassets in Resources */,
 				E6881B862833592A004A46BD /* Main.storyboard in Resources */,
 				E6A0648C283DE2E100D5B24F /* Nunito-VariableFont_wght.ttf in Resources */,
 				E6A0648A283DE19A00D5B24F /* OpenSans-VariableFont_wdth,wght.ttf in Resources */,
+				E61F8A142882B68D00FBE940 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35CAE1EA457EC0957EBC9C57 /* [CP] Check Pods Manifest.lock */ = {
+		8A3F338F9CA50A9D89AAA628 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Valeriana/Pods-Valeriana-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Valeriana/Pods-Valeriana-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Valeriana/Pods-Valeriana-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6CC15ADEA6902D239CED454 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -316,23 +353,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B5D590C3CF094A598D0D3BE4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Valeriana/Pods-Valeriana-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Valeriana/Pods-Valeriana-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Valeriana/Pods-Valeriana-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -342,11 +362,14 @@
 			files = (
 				E6E8573E28790F380063A229 /* Paciente.swift in Sources */,
 				E6965029287E60A400D2820C /* HistoricoCustomTableViewCell.swift in Sources */,
-				E676E4BC283F243E0031254B /* LoginViewController.swift in Sources */,
 				E66B354A28641FD10056A329 /* SignUpViewController.swift in Sources */,
 				E66D4472284088C000DE0518 /* UIColor.swift in Sources */,
 				E6DE7C3E288103E500D4792E /* CalendarViewController.swift in Sources */,
+				E61F89EE28829B7300FBE940 /* LoginViewController.swift in Sources */,
+				E61F89EA28828A8D00FBE940 /* NetworkErrorViewController.swift in Sources */,
 				E68434BF286D6A6200D9FD7C /* AddPacienteViewController.swift in Sources */,
+				E61F89E6288275BB00FBE940 /* NetworkMonitor.swift in Sources */,
+				E61F89E22882490100FBE940 /* PopUpViewController.swift in Sources */,
 				E6881B832833592A004A46BD /* ViewController.swift in Sources */,
 				E679F7C2287FDDCC001ADC8C /* CalendarCell.swift in Sources */,
 				E679F7C0287FD893001ADC8C /* CalendarHelper.swift in Sources */,
@@ -356,6 +379,7 @@
 				E6C5B9AB286445E90084EAF7 /* HomeViewController.swift in Sources */,
 				E686D652287E573300F1AB9B /* HistoricoViewController.swift in Sources */,
 				E6881B812833592A004A46BD /* SceneDelegate.swift in Sources */,
+				E61F89E82882828A00FBE940 /* ProfileViewController.swift in Sources */,
 				E6EDA72B28762C86000DB8CF /* CustomTabBarController.swift in Sources */,
 				E643D6BA287D4C74003CF92F /* DirectorioViewController.swift in Sources */,
 				E686D650287E53A800F1AB9B /* DirectorioCustomTableViewCell.swift in Sources */,
@@ -508,7 +532,7 @@
 		};
 		E6881B902833592F004A46BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B699E7A52DB4738B65357D2 /* Pods-Valeriana.debug.xcconfig */;
+			baseConfigurationReference = 522113374160FE495DC7CF01 /* Pods-Valeriana.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -540,7 +564,7 @@
 		};
 		E6881B912833592F004A46BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E16B22FE7F27D55690E56DD1 /* Pods-Valeriana.release.xcconfig */;
+			baseConfigurationReference = E24EB5343438AA6ED32500C9 /* Pods-Valeriana.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1093423492583-e9cbe7gt88v6t4iatrag7mdphen28g7j.apps.googleusercontent.com</string>
+	<string>1015647524504-vlmhkpo2j5qf35am2rrgbpvf256486f2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1093423492583-e9cbe7gt88v6t4iatrag7mdphen28g7j</string>
+	<string>com.googleusercontent.apps.1015647524504-vlmhkpo2j5qf35am2rrgbpvf256486f2</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB0f5YnngRqlYc075syAlHXY-5PkjgZyMc</string>
+	<string>AIzaSyAUoQ8yTEqzhMSZHvYPlGyxgH3lXdZqlKg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1093423492583</string>
+	<string>1015647524504</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>artisticpako.Valeriana</string>
 	<key>PROJECT_ID</key>
-	<string>valeriana-bbbaf</string>
+	<string>valerianaapp-429d0</string>
 	<key>STORAGE_BUCKET</key>
-	<string>valeriana-bbbaf.appspot.com</string>
+	<string>valerianaapp-429d0.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1093423492583:ios:b119ea7ea54c938b8ea142</string>
+	<string>1:1015647524504:ios:f7a1ce847c1e5b2c1ea2ed</string>
 </dict>
 </plist>

@@ -15,6 +15,7 @@ class CustomTableViewCellHome: UITableViewCell {
     @IBOutlet weak var nombreLabel: UILabel!
     @IBOutlet weak var asuntoTextview: UITextView!
     @IBOutlet weak var profileimage: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

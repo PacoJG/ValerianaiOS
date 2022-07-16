@@ -20,5 +20,6 @@ public extension UIColor {
         static let greenDark = UIColor(named: "greenDark")
         static let redDrak = UIColor(named: "redBlack")
         static let baseSoft = UIColor(named: "baseSoft")
+        static let white = UIColor(named: "white")
     }
 }

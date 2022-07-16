@@ -8,6 +8,7 @@
 import UIKit
 import MultilineTextField
 import FirebaseDatabase
+import FirebaseAuth
 
 class DetailPacienteViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class DetailPacienteViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var urlImageLabel: UILabel!
     @IBOutlet weak var asuntoTextView: MultilineTextField!
     @IBOutlet weak var descripcionTextView: MultilineTextField!
@@ -35,6 +37,15 @@ class DetailPacienteViewController: UIViewController {
     var keyPaciente = ""
     var fecha = ""
     var urlImage = ""
+    var time = ""
+    
+    let userID = Auth.auth().currentUser!.uid
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
     
 
     override func viewDidLoad() {
@@ -99,6 +110,7 @@ class DetailPacienteViewController: UIViewController {
         numeroCelulartextView.text = numeroCelular
         prescripcionTextView.text = prescripcion
         tagLabel.text = tag
+        timeLabel.text = time
 
         // Do any additional setup after loading the view.
     }
@@ -114,8 +126,8 @@ class DetailPacienteViewController: UIViewController {
     @IBAction func EditarData(_ sender: Any) {
         view.endEditing(true)
         
-        let values = ["nombre":nameLabel.text!, "fecha":fecha, "tag":tagLabel.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":IndicacionesTextView.text!, "numero":numeroCelulartextView.text!, "image":urlImage]
-        Database.database().reference().child("pacientes").child(keyPaciente).updateChildValues(values, withCompletionBlock:  { [self] (error, ref) in
+        let values = ["nombre":nameLabel.text!, "fecha":fecha, "tag":tagLabel.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":IndicacionesTextView.text!, "numero":numeroCelulartextView.text!, "image":urlImage, "time":timeLabel.text!]
+        Database.database().reference().child("pacientes").child(userID).child(keyPaciente).updateChildValues(values, withCompletionBlock:  { [self] (error, ref) in
             if let error = error {
                 let alert = UIAlertController(title: "", message: "Ocurrio un error al editar al paciente\(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))

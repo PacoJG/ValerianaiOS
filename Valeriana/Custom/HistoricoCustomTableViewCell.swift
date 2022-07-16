@@ -8,9 +8,12 @@
 import UIKit
 
 class HistoricoCustomTableViewCell: UITableViewCell {
+
+   
     @IBOutlet weak var asuntoTextView: UITextView!
     @IBOutlet weak var tagLabel: UILabel!
-    @IBOutlet weak var fechaLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -23,18 +23,23 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var phoneNumberTextView: MultilineTextField!
     @IBOutlet weak var nombretextField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     //@IBOutlet weak var tapToChangeProfile: UIButton!
     @IBOutlet weak var urlImageProfileLabel: UILabel!
     
     private let storage = Storage.storage().reference()
+    let userID = Auth.auth().currentUser!.uid
     
     
     
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var tagTextField: UITextField!
+    
     let df = DateFormatter()
+    let df2 = DateFormatter()
     let optionsTag = ["consulta", "extracción", "implantes"]
     var pickerTag = UIPickerView()
     //var imagePicker:UIImagePickerController!
@@ -56,12 +61,20 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
         pickerTag.dataSource = self
         pickerTag.delegate = self
         pickerTag.tag = 1
+        //DATE PICKER
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .compact
         datePicker.semanticContentAttribute = .forceRightToLeft
         datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
         df.dateFormat  = "MMM d, yyyy"
         dateLabel.text = df.string(from: datePicker.date)
+        //TIME PICKER
+        timePicker.datePickerMode = .time
+        timePicker.semanticContentAttribute = .forceLeftToRight
+        timePicker.preferredDatePickerStyle = .compact
+        timePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
+        df2.dateFormat = "HH:mm"
+        timeLabel.text = df2.string(from: timePicker.date)
         //Data ASUNTO
         asuntoTextView.contentInset = UIEdgeInsets(top: 12, left: 24, bottom: 12, right: 24)
         asuntoTextView.placeholderColor = UIColor(red: 0.51, green: 0.77, blue: 0.75, alpha: 1.00)
@@ -142,11 +155,16 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
     }
     
+    @IBAction func elegirTime(_ sender: Any) {
+        timeLabel.text = df2.string(from: timePicker.date)
+        
+    }
+    
     @IBAction func guardarPaciente(_ sender: Any) {
         view.endEditing(true)
         if validateForm(){
-            let values = ["nombre":nombretextField.text!, "fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":String(asuntoTextView.text!), "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!]
-            Database.database().reference().child("pacientes").childByAutoId().updateChildValues(values, withCompletionBlock:  { (error, ref) in
+            let values = ["nombre":nombretextField.text!, "fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":String(asuntoTextView.text!), "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!, "time":timeLabel.text!]
+            Database.database().reference().child("pacientes").child(userID).childByAutoId().updateChildValues(values, withCompletionBlock:  { (error, ref) in
                 if let error = error {
                     print("Error al crear al paciente", error.localizedDescription)
                     return

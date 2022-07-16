@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -23,10 +24,12 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     var fecha = Date()
     var pacientes = [Paciente]()
     
+    let userID = Auth.auth().currentUser!.uid
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pacientes.removeAll()
-        getData()
+        //getData()
     }
 
     override func viewDidLoad() {
@@ -91,11 +94,15 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
     @IBAction func previusWeek(_ sender: Any) {
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)
+        table.reloadData()
+        pacientes.removeAll()
         setWeekView()
     }
     
     @IBAction func nextWeek(_ sender: Any) {
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
+        table.reloadData()
+        pacientes.removeAll()
         setWeekView()
     }
     
@@ -111,6 +118,10 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         table.reloadData()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pacientes.count
     }
@@ -122,6 +133,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.nameLabel?.text = paciente.sNombre
         cell.tagLabel?.text = paciente.sTag
         cell.dateLabel?.text = paciente.sFecha
+        cell.timeLabel?.text = paciente.sTime
         cell.asuntoTextView.text = String(paciente.sAsunto)
         cell.layer.cornerRadius = 12
         cell.layer.borderColor = UIColor.valerianaColor.baseLight?.cgColor
@@ -133,18 +145,13 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         df.dateFormat = "MMM d, yyyy"
         let dateString = df.string(from: fecha)
         let ref = Database.database().reference()
-        ref.child("pacientes").queryOrdered(byChild: "fecha").queryEqual(toValue: dateString).observe(DataEventType.childAdded) { [weak self](snapshot) in
-            print("Lo descargado",snapshot.value!)
+        ref.child("pacientes").child(userID).queryOrdered(byChild: "fecha").queryEqual(toValue: dateString).observe(DataEventType.childAdded) { [weak self](snapshot) in
+            //print("Lo descargado",snapshot.value!)
             //print(dateString)
             //let key = snapshot.key
             guard let value = snapshot.value as? [String:Any] else {return}
-            if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String {
-                let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage)
-                /*self?.pacientes.append(paciente)
-                if let row = self?.pacientes.count{
-                    let indexPath = IndexPath(row: row-1, section: 0)
-                    self?.table.insertRows(at: [indexPath], with: .automatic)
-                }*/
+            if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String, let time = value["time"] as? String {
+                let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage, sTime: time)
                 self?.pacientes.append(paciente)
                 self?.table?.reloadData()
             }

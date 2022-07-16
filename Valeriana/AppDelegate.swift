@@ -15,10 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         // Override point for customization after application launch.
+        NetworkMonitor.shared.startMonitoring()
         
         //Inicializar Firebase
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
         
         return true
     }

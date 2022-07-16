@@ -19,8 +19,9 @@ class Paciente: NSObject {
     var sPhone:String
     var sKey: String
     var sImage: String
+    var sTime: String
     //, sDescripcion: String, sPrescripcion: String, sIndicaciones: String, sPhone: String
-    init(sNombre: String, sAsunto: String, sFecha: String, sTag: String, sDescripcion: String, sPrescripcion: String, sIndicaciones: String, sPhone: String, sKey: String, sImage: String){
+    init(sNombre: String, sAsunto: String, sFecha: String, sTag: String, sDescripcion: String, sPrescripcion: String, sIndicaciones: String, sPhone: String, sKey: String, sImage: String, sTime: String){
         self.sNombre = sNombre
         self.sAsunto = sAsunto
         self.sFecha = sFecha
@@ -30,7 +31,9 @@ class Paciente: NSObject {
         self.sIndicaciones = sIndicaciones
         self.sPhone = sPhone
         self.sKey = sKey
+        self.sTime = sTime
         self.sImage = sImage
+        
     }
 
 }
