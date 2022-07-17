@@ -48,6 +48,8 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         if NetworkMonitor.shared.isConnected{
             getData()
+            //let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+            //view.addGestureRecognizer(tap)
         }else{
             let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
@@ -60,6 +62,8 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         table.delegate = self
         table.dataSource = self
         searchBar.delegate = self
+        //let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        //view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
@@ -85,7 +89,7 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @objc func btnAction(sender: UIButton){
         let indexPath = IndexPath(row: sender.tag, section: 0)
-        let pacienteSelected = filterpacientesDir[indexPath.row]
+        let pacienteSelected = pacientesDir[indexPath.row]
         callNumber(phoneNumber: pacienteSelected.sPhone)
     }
     
@@ -101,7 +105,7 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("APRIETO EL BOTOOOOON")
         let vc = storyboard?.instantiateViewController(withIdentifier: "historicoPaciente") as? HistoricoViewController
-        let pacientes = filterpacientesDir[indexPath.row]
+        let pacientes = pacientesDir[indexPath.row]
         vc?.name = pacientes.sNombre
         vc?.urlImage = pacientes.sImage
         vc?.phoneNumber = pacientes.sPhone
