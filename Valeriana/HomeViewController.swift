@@ -36,7 +36,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let dateString = df.string(from: Date())
         dateLabel.text = dateString
         if NetworkMonitor.shared.isConnected{
-            pacientes.removeAll()
+            //pacientes.removeAll()
+            table.reloadData()
             getData()
             loadUserImage()
         }else{
@@ -136,6 +137,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let indexPath = IndexPath(row: row-1, section: 0)
                     self?.table.insertRows(at: [indexPath], with: .automatic)
                 }*/
+                self?.pacientes.removeAll()
                 self?.pacientes.append(paciente)
                 self?.table?.reloadData()
             }
