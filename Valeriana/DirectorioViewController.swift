@@ -42,6 +42,7 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         self.searchBar.searchTextField.layer.borderColor = UIColor.valerianaColor.fontBase?.cgColor
         self.searchBar.searchTextField.backgroundColor = .white
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +63,7 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         table.delegate = self
         table.dataSource = self
         searchBar.delegate = self
+        self.hideKeyboardWhenTappedAround() 
         //let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         //view.addGestureRecognizer(tap)
 
@@ -154,5 +156,17 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
 
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 

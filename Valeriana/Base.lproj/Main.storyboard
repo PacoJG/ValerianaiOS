@@ -2133,6 +2133,7 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVK-BV-06e">
                                                         <rect key="frame" x="134" y="679.5" width="146" height="39"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Editar">
                                                             <fontDescription key="titleFontDescription" name="OpenSansRoman-SemiBold" family="Open Sans" pointSize="18"/>
