@@ -47,3 +47,7 @@ $ pod install
 La app tiene soporte para que cualquier persona se registre y haga las pruebas con su perfil. En caso de requerir el usuario de pruba, a continuaciòn se proporcionan las credenciales
 - email: pakitogarcia@gmail.com
 - password: tester1234@
+
+## Video demostrativo
+
+entra a la siguiente liga: https://drive.google.com/drive/folders/1AmIgVYH5Sz_M7PcLF-x1nWV1u3VCH4v6?usp=sharing
