@@ -14,6 +14,9 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        logoutBtn.setTitle("", for: .normal)
+        let logoutImage = UIImage(named: "logoutIcon.png")
+        logoutBtn.setImage(logoutImage?.withRenderingMode(.alwaysOriginal), for: .normal)
 
         // Do any additional setup after loading the view.
     }
