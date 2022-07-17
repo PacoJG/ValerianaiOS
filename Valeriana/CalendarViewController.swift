@@ -16,6 +16,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var selectedDate = Date()
     var totalSquares = [Date]()
@@ -28,7 +29,20 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pacientes.removeAll()
+        let df = DateFormatter()
+        df.dateFormat = "MMM d, yyyy"
+        let dateString = df.string(from: Date())
+        dateLabel.text = dateString
+        if NetworkMonitor.shared.isConnected{
+            table.reloadData()
+        }else{
+            let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        //pacientes.removeAll()
+        
         //getData()
     }
 
@@ -48,7 +62,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func setCellsView() {
-        let width = (collectionView.frame.size.width - 2) / 8
+        let width = (collectionView.frame.size.width - 2) / 9
         let height = (collectionView.frame.size.height - 2)
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
@@ -68,7 +82,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         monthLabel.text = CalendarHelper().monthString(date: selectedDate)
             + " " + CalendarHelper().yearString(date: selectedDate)
         collectionView.reloadData()
-        table.reloadData()
+        //table.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -84,7 +98,9 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         if(date == selectedDate) {
             cell.backgroundColor = UIColor.valerianaColor.greenLight
             fecha = date
+            //pacientes.removeAll()
             getData()
+            //table.reloadData()
         }
         else {
             cell.backgroundColor = UIColor.valerianaColor.baseLight
@@ -94,15 +110,17 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
     @IBAction func previusWeek(_ sender: Any) {
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)
-        table.reloadData()
         pacientes.removeAll()
+        //getData()
+        table.reloadData()
         setWeekView()
     }
     
     @IBAction func nextWeek(_ sender: Any) {
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
-        table.reloadData()
         pacientes.removeAll()
+        //getData()
+        table.reloadData()
         setWeekView()
     }
     

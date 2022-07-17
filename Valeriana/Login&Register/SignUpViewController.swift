@@ -42,14 +42,16 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpTapped(_ sender: Any) {
-        
-        //validar los campos
-        //let error = validateFields()
-        if validateForm() {
-            signup()
-        }
-        else{
-            setMessage("Error", "¡Capture correctamente sus datos!")
+        if NetworkMonitor.shared.isConnected{
+            if validateForm() {
+                signup()
+            } else {
+                setMessage("Error", "¡Capture correctamente sus datos!")
+            }
+        }else{
+            let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

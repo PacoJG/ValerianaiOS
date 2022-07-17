@@ -124,22 +124,27 @@ class DetailPacienteViewController: UIViewController {
     }
     
     @IBAction func EditarData(_ sender: Any) {
-        view.endEditing(true)
-        
-        let values = ["nombre":nameLabel.text!, "fecha":fecha, "tag":tagLabel.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":IndicacionesTextView.text!, "numero":numeroCelulartextView.text!, "image":urlImage, "time":timeLabel.text!]
-        Database.database().reference().child("pacientes").child(userID).child(keyPaciente).updateChildValues(values, withCompletionBlock:  { [self] (error, ref) in
-            if let error = error {
-                let alert = UIAlertController(title: "", message: "Ocurrio un error al editar al paciente\(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                present(alert, animated: true)
-                return
-            } else{
-                let alert = UIAlertController(title: "", message: "Edición de paciente exitosa", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                present(alert, animated: true)
-            }
-        })
-        
+        if NetworkMonitor.shared.isConnected{
+            view.endEditing(true)
+            
+            let values = ["nombre":nameLabel.text!, "fecha":fecha, "tag":tagLabel.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":IndicacionesTextView.text!, "numero":numeroCelulartextView.text!, "image":urlImage, "time":timeLabel.text!]
+            Database.database().reference().child("pacientes").child(userID).child(keyPaciente).updateChildValues(values, withCompletionBlock:  { [self] (error, ref) in
+                if let error = error {
+                    let alert = UIAlertController(title: "", message: "Ocurrio un error al editar al paciente\(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                    present(alert, animated: true)
+                    return
+                } else{
+                    let alert = UIAlertController(title: "", message: "Edición de paciente exitosa", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                    present(alert, animated: true)
+                }
+            })
+        }else{
+            let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     private func callNumber(phoneNumber:String) {

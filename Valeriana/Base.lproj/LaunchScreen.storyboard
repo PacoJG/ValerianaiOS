@@ -4,9 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pauline_bold.ttf">
+            <string>Pauline-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -17,16 +21,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ValerianaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="StV-Qq-tR6">
-                                <rect key="frame" x="51" y="76" width="312" height="198"/>
+                                <rect key="frame" x="35.5" y="108" width="343" height="380"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="GX9-kl-5cC"/>
+                                    <constraint firstAttribute="height" constant="380" id="ooU-9e-2VK"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valeriana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czP-Uz-HaD">
+                                <rect key="frame" x="85" y="488" width="244" height="87"/>
+                                <fontDescription key="fontDescription" name="Pauline-Bold" family="Pauline" pointSize="64"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="StV-Qq-tR6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="92I-N9-42I"/>
-                            <constraint firstItem="StV-Qq-tR6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fzF-xD-TZj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="StV-Qq-tR6" secondAttribute="bottom" constant="588" id="gML-9r-bSv"/>
-                            <constraint firstItem="StV-Qq-tR6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="ubK-gU-Ztd"/>
+                            <constraint firstItem="czP-Uz-HaD" firstAttribute="top" secondItem="StV-Qq-tR6" secondAttribute="bottom" id="4nx-oj-lwG"/>
+                            <constraint firstItem="czP-Uz-HaD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="St7-r2-6nZ"/>
+                            <constraint firstItem="StV-Qq-tR6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qMR-Mn-y78"/>
+                            <constraint firstItem="StV-Qq-tR6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="y2F-Or-BgV"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,8 +51,5 @@
     </scenes>
     <resources>
         <image name="ValerianaLogo" width="1080" height="1080"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

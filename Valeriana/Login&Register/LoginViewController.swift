@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtnAction(_ sender: Any) {
         if NetworkMonitor.shared.isConnected{
-            login()
             if validateForm() {
                 login()
             } else {

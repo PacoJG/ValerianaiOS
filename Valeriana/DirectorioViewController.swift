@@ -46,14 +46,19 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pacientesDir.removeAll()
-        getData()
+        if NetworkMonitor.shared.isConnected{
+            getData()
+        }else{
+            let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        table?.delegate = self
-        table?.dataSource = self
+        table.delegate = self
+        table.dataSource = self
         searchBar.delegate = self
 
         // Do any additional setup after loading the view.
@@ -70,11 +75,11 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.profileImage.loadFrom(URLAddress: paciente.sImage)
         cell.layer.borderColor = UIColor.valerianaColor.baseLight?.cgColor
         cell.layer.borderWidth = 8
-        cell.callButton.tag = indexPath.row
-        cell.callButton.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
-        let backgroundvIEW = UIView()
-        backgroundvIEW.backgroundColor = UIColor.white
-        cell.selectedBackgroundView = backgroundvIEW
+        //cell.callButton.tag = indexPath.row
+        //cell.callButton.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
+        //let backgroundvIEW = UIView()
+        //backgroundvIEW.backgroundColor = UIColor.white
+        //cell.selectedBackgroundView = backgroundvIEW
         return cell
     }
     
@@ -94,14 +99,14 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "historialPaciente") as? HistoricoViewController{
-            let pacientes = filterpacientesDir[indexPath.row]
-            vc.name = pacientes.sNombre
-            vc.urlImage = pacientes.sImage
-            vc.phoneNumber = pacientes.sPhone
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
+        //print("APRIETO EL BOTOOOOON")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "historicoPaciente") as? HistoricoViewController
+        let pacientes = filterpacientesDir[indexPath.row]
+        vc?.name = pacientes.sNombre
+        vc?.urlImage = pacientes.sImage
+        vc?.phoneNumber = pacientes.sPhone
+        self.navigationController?.pushViewController(vc!, animated: true)
+        //self.present(vc!, animated: true, completion: nil)
     }
     
     func getData(){
@@ -115,11 +120,6 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
             guard let value = snapshot.value as? [String:Any] else {return}
             if let nombre = value["nombre"] as? String, let asunto = value["asunto"] as? String, let fecha = value["fecha"] as? String, let tag = value["tag"] as? String, let descripcion = value["descripcion"] as? String, let prescripcion = value["prescripcion"] as? String, let indicaciones = value ["indicaciones"] as? String, let numero = value ["numero"] as? String, let key = snapshot.key as? String, let urlImage = value["image"] as? String, let time = value["time"] as? String {
                 let paciente = Paciente(sNombre: nombre, sAsunto: asunto, sFecha: fecha, sTag: tag, sDescripcion: descripcion, sPrescripcion: prescripcion, sIndicaciones: indicaciones, sPhone: numero, sKey: key, sImage: urlImage, sTime: time)
-                /*self?.pacientes.append(paciente)
-                if let row = self?.pacientes.count{
-                    let indexPath = IndexPath(row: row-1, section: 0)
-                    self?.table.insertRows(at: [indexPath], with: .automatic)
-                }*/
                 if ((self?.tmp.contains(paciente.sNombre)) != true) {
                     self?.tmp.append(paciente.sNombre)
                     self?.pacientesDir.append(paciente)

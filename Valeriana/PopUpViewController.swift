@@ -38,6 +38,10 @@ class PopUpViewController: UIViewController {
         indicacionesTextView.text = indicaciones
         timeLabel.text = time
         
+        indicacionesTextView.layer.backgroundColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00).cgColor
+        prescripcionTextView.layer.backgroundColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00).cgColor
+        asuntoTextView.layer.backgroundColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00).cgColor
+        
         popupView.layer.masksToBounds = true
         popupView.layer.cornerRadius = 8
 

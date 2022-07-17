@@ -40,7 +40,7 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     let df = DateFormatter()
     let df2 = DateFormatter()
-    let optionsTag = ["consulta", "extracción", "implantes"]
+    let optionsTag = ["consulta", "extracción", "implantes", "nutricion", "psicología"]
     var pickerTag = UIPickerView()
     //var imagePicker:UIImagePickerController!
     
@@ -161,20 +161,29 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func guardarPaciente(_ sender: Any) {
-        view.endEditing(true)
-        if validateForm(){
-            let values = ["nombre":nombretextField.text!, "fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":String(asuntoTextView.text!), "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!, "time":timeLabel.text!]
-            Database.database().reference().child("pacientes").child(userID).childByAutoId().updateChildValues(values, withCompletionBlock:  { (error, ref) in
-                if let error = error {
-                    print("Error al crear al paciente", error.localizedDescription)
-                    return
-                }
-                
-                self.setMessage("", "Paciente agregado con exito")
-            })
+        
+        if NetworkMonitor.shared.isConnected{
+            view.endEditing(true)
+            if validateForm(){
+                let values = ["nombre":nombretextField.text!, "fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":String(asuntoTextView.text!), "descripcion":descripcionTextView.text!,"prescripcion":prescripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!, "time":timeLabel.text!]
+                Database.database().reference().child("pacientes").child(userID).childByAutoId().updateChildValues(values, withCompletionBlock:  { (error, ref) in
+                    if let error = error {
+                        print("Error al crear al paciente", error.localizedDescription)
+                        return
+                    }
+                    
+                    self.setMessage("", "Paciente agregado con exito")
+                })
+            }else{
+                self.setMessage("", "Error al crear al usuario. Asegurese que los campos obligatorios esten llenos")
+            }
         }else{
-            self.setMessage("", "Error al crear al usuario. Asegurese que los campos obligatorios esten llenos")
+            let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
+        
+        
         /*let db =  Firestore.firestore()
         db.collection("pacientes").document(nombretextField.text!).setData(["fecha":dateLabel.text!, "tag":tagTextField.text!, "asunto":asuntoTextView.text!, "descripcion":descripcionTextView.text!, "indicaciones":indicacionesTextView.text!, "numero":phoneNumberTextView.text!, "image":urlImageProfileLabel.text!]) { (error) in
             

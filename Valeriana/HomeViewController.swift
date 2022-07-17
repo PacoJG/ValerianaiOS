@@ -13,21 +13,35 @@ import FirebaseDatabase
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var nameUser: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var table: UITableView!{
         didSet{
             table.dataSource = self
         }
     }
     
-    let date = Date()
-    let df = DateFormatter()
+
+    
+    //let dateString = df.string(from: Date())
     var pacientes = [Paciente]()
     let userID = Auth.auth().currentUser!.uid
+    var dateOfDay = ""
+   
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pacientes.removeAll()
-        getData()
+        let df = DateFormatter()
+        df.dateFormat = "MMM d, yyyy"
+        let dateString = df.string(from: Date())
+        dateLabel.text = dateString
+        if NetworkMonitor.shared.isConnected{
+            pacientes.removeAll()
+            getData()
+        }else{
+            let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -36,6 +50,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.delegate = self
         table.dataSource = self
         loadUserData()
+        //print("ES LA FECHAAAAA DE HOY \(dateOfDay)")
+        
         //print("EL USUARIO TIENE UN ID: \(userID)")
         
 
@@ -93,11 +109,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     func getData(){
-        df.dateFormat = "MMM d, yyyy"
-        let dateString = df.string(from: date)
         let ref = Database.database().reference()
-        ref.child("pacientes").child(userID).queryOrdered(byChild: "fecha").queryEqual(toValue: dateString).observe(DataEventType.childAdded) { [weak self](snapshot) in
-            print("Lo descargado",snapshot.value!)
+        //let keyValue = ref.child("pacientes").child(userID).childByAutoId().key
+        ref.child("pacientes").child(userID).queryOrdered(byChild: "fecha").queryEqual(toValue: dateLabel.text).observe(.childAdded) { [weak self](snapshot) in
+            //print("Lo descargado",snapshot.value!)
             //print(dateString)
             //let key = snapshot.key
             guard let value = snapshot.value as? [String:Any] else {return}
@@ -113,5 +128,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+    
 
 }
+
+/*extension DateFormatter{
+    static let dateFormat: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .long
+        df.timeStyle = .none
+        return df
+    }()
+    static let timeFormat: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .none
+        df.timeStyle = .short
+        return df
+    }()
+    
+}*/

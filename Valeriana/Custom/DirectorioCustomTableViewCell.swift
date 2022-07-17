@@ -9,9 +9,11 @@ import UIKit
 
 class DirectorioCustomTableViewCell: UITableViewCell {
 
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nombreLabel: UILabel!
     @IBOutlet weak var callButton: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

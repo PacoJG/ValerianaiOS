@@ -22,6 +22,7 @@ class HistoricoViewController: UIViewController, UITableViewDataSource, UITableV
             table.dataSource = self
         }
     }
+    @IBOutlet weak var backBtn: UIButton!
     
     var name = ""
     var urlImage = ""
@@ -34,8 +35,14 @@ class HistoricoViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pacientes.removeAll()
-        getData()
+        if NetworkMonitor.shared.isConnected{
+            pacientes.removeAll()
+            getData()
+        }else{
+            let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -45,7 +52,11 @@ class HistoricoViewController: UIViewController, UITableViewDataSource, UITableV
         table.delegate = self
         table.dataSource = self
         table.rowHeight = 118
+        navigationItem.hidesBackButton = true
         
+        backBtn.setTitle("", for: .normal)
+        let backImage = UIImage(named: "backIcon.png")
+        backBtn.setImage(backImage?.withRenderingMode(.alwaysOriginal), for: .normal)
         
         callButton.setTitle("", for: .normal)
         let callImage = UIImage(named: "callIcon.png")
@@ -60,6 +71,10 @@ class HistoricoViewController: UIViewController, UITableViewDataSource, UITableV
         profileImage.makeRoundCorners(byRadius: 8)
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func callButton(_ sender: Any) {
