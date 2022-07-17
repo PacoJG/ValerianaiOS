@@ -50,4 +50,4 @@ La app tiene soporte para que cualquier persona se registre y haga las pruebas c
 
 ## Video demostrativo
 
-entra a la siguiente liga: https://drive.google.com/drive/folders/1AmIgVYH5Sz_M7PcLF-x1nWV1u3VCH4v6?usp=sharing
+entra a la siguiente liga: https://www.mediafire.com/file/kyf1p49rmkfbcdd/pruebaiOS.mp4/file
