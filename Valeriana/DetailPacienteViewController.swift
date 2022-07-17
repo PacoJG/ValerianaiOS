@@ -86,6 +86,7 @@ class DetailPacienteViewController: UIViewController {
         numeroCelulartextView.layer.cornerRadius = 6
         numeroCelulartextView.layer.borderColor = UIColor.valerianaColor.gray?.cgColor
         numeroCelulartextView.layer.backgroundColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00).cgColor
+        imageProfile.makeRoundCorners(byRadius: 8)
         
         navigationItem.hidesBackButton = true
         

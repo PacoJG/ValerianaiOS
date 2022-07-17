@@ -110,6 +110,7 @@ class AddPacienteViewController: UIViewController, UIPickerViewDelegate, UIPicke
         phoneNumberTextView.layer.cornerRadius = 6
         phoneNumberTextView.layer.borderColor = UIColor.valerianaColor.gray?.cgColor
         phoneNumberTextView.layer.backgroundColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00).cgColor
+        profileImage.makeRoundCorners(byRadius: 8)
         
         self.phoneNumberTextView.delegate = self
         

@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameUser: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var table: UITableView!{
@@ -37,6 +38,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if NetworkMonitor.shared.isConnected{
             pacientes.removeAll()
             getData()
+            loadUserImage()
         }else{
             let alert = UIAlertController(title: "No hay internet", message: "Esta app requiere wifi/internet para funcionar", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Salir", style: UIAlertAction.Style.destructive, handler: nil))
@@ -50,6 +52,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.delegate = self
         table.dataSource = self
         loadUserData()
+        profileImage.makeRoundCorners(byRadius: 8)
         //print("ES LA FECHAAAAA DE HOY \(dateOfDay)")
         
         //print("EL USUARIO TIENE UN ID: \(userID)")
@@ -66,6 +69,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             guard let firstName = snapshot.value as? String else {return}
             self.nameUser?.text = "¡Hola, \(firstName)!"
 
+        }
+        
+    }
+    
+    func loadUserImage(){
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Database.database().reference().child("perfil").child(uid).child("image").observeSingleEvent(of: .value) { (snapshot) in
+            guard let imageUrl = snapshot.value as? String else {return}
+            self.profileImage.loadFrom(URLAddress: imageUrl)
         }
         
     }

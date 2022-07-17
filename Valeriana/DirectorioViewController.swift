@@ -75,11 +75,11 @@ class DirectorioViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.profileImage.loadFrom(URLAddress: paciente.sImage)
         cell.layer.borderColor = UIColor.valerianaColor.baseLight?.cgColor
         cell.layer.borderWidth = 8
-        //cell.callButton.tag = indexPath.row
-        //cell.callButton.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
-        //let backgroundvIEW = UIView()
-        //backgroundvIEW.backgroundColor = UIColor.white
-        //cell.selectedBackgroundView = backgroundvIEW
+        cell.callButton.tag = indexPath.row
+        cell.callButton.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
+        let backgroundvIEW = UIView()
+        backgroundvIEW.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = backgroundvIEW
         return cell
     }
     
